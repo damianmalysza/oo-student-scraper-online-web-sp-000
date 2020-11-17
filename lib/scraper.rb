@@ -12,7 +12,7 @@ class Scraper
       #binding.pry
       {name: student.css(".student-name").text, location: student.css(".student-location").text, profile_url: student.css("a").attr("href").text}
     end
-    binding.pry
+    #binding.pry
     # name = student_profile.css(".student-name").text
     # location = student_profile.css(".student-location").text
     # student_url = student_profile.css("a").attr("href").text
