@@ -9,7 +9,7 @@ class Scraper
     doc = Nokogiri::HTML(open("https://learn-co-curriculum.github.io/student-scraper-test-page/index.html"))
     #iterate over each student card
     doc.css(".student-card").collect do |student|
-      binding.pry
+      #binding.pry
       {name: student.css(".student-name").text, location: student.css(".student-location").text, profile_url: student.css("a").attr("href").text}
     end
     # name = student_profile.css(".student-name").text
