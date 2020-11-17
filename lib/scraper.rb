@@ -8,7 +8,7 @@ class Scraper
     doc = Nokogiri::HTML(open("https://learn-co-curriculum.github.io/student-scraper-test-page/index.html"))
     return_array = []
     student_profile = doc.css(".student-card")
-    student_profile.collect do {|student|}
+    student_profile.collect do |student|
       binding.pry
       return_array << {name: => student.css(".student-name").text, location: student.css(".student-location").text, profile_url: student.css("a").attr("href").text}
     end
