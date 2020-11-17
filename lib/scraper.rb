@@ -10,7 +10,7 @@ class Scraper
     student_profile = doc.css(".student-card")
     student_profile.collect do {|student|}
       binding.pry
-      return_array << {name: => student.css(".student-name").text, location: studnet.css(".student-location").text, profile_url: student.css("a").attr("href").text}
+      return_array << {name: => student.css(".student-name").text, location: student.css(".student-location").text, profile_url: student.css("a").attr("href").text}
     end
     # name = student_profile.css(".student-name").text
     # location = student_profile.css(".student-location").text
