@@ -5,11 +5,10 @@ require 'nokogiri'
 class Scraper
 
   def self.scrape_index_page(index_url)
-    return_hash = {}
     doc = Nokogiri::HTML(open("https://learn-co-curriculum.github.io/student-scraper-test-page/index.html"))
     binding.pry
     student_profile = doc.css(".student-card")
-    student_profile.each do {|student|}
+    student_profile.collect do {|student|}
       
     end
     # name = student_profile.css(".student-name").text
