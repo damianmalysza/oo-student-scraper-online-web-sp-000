@@ -8,10 +8,7 @@ class Scraper
     #loading the HTML element using Nokogiri and storing in a 'doc' variable
     doc = Nokogiri::HTML(open("https://learn-co-curriculum.github.io/student-scraper-test-page/index.html"))
     #iterate over each student card
-    doc.css(".student-card").collect do |student|
-      #binding.pry
-      {name: student.css(".student-name").text, location: student.css(".student-location").text, profile_url: student.css("a").attr("href").text}
-    end
+    Hash[doc.css(".student-card").collect {|student| {name: student.css(".student-name").text, location: student.css(".student-location").text, profile_url: student.css("a").attr("href").text}}.flatten]
     #binding.pry
     # name = student_profile.css(".student-name").text
     # location = student_profile.css(".student-location").text
