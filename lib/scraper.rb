@@ -6,9 +6,8 @@ class Scraper
 
   def self.scrape_index_page(index_url)
     doc = Nokogiri::HTML(open("https://learn-co-curriculum.github.io/student-scraper-test-page/index.html"))
-    return_array = []
-    student_profile = doc.css(".student-card")
-    student_profile.collect do |student|
+    
+    doc.css(".student-card").collect do |student|
       binding.pry
       {name: student.css(".student-name").text, location: student.css(".student-location").text, profile_url: student.css("a").attr("href").text}
     end
