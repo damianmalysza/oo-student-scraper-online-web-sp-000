@@ -26,7 +26,7 @@ class Scraper
     end
     return_hash[:profile_quote] = doc.css(".vitals-text-container").css(".profile-quote").text
     return_hash[:bio] = doc.css(".description-holder").css("p").text
-    #binding.pry
+  
     return_hash
   end
 
