@@ -17,7 +17,8 @@ class Scraper
     return_hash = {}
     social_media = doc.css(".social-icon-container").css("a")
     social_media.each do |social|
-      return_hash[social.attr("href").gsub("www.","")[/(?<=\/{2})(.*?)(?=\.)/].to_sym] = social.attr("href")
+      social_med = social.attr("href").gsub("www.","")[/(?<=\/{2})(.*?)(?=\.)/]
+      return_hash[social_med.to_sym] = social.attr("href")
     end
     return_hash[:profile_quote] = doc.css(".vitals-text-container").css(".profile-quote").text
     return_hash[:bio] = doc.css(".description-holder").css("p").text
