@@ -14,16 +14,16 @@ class Scraper
   def self.scrape_profile_page(profile_url)
     #loading the HTML elements of the profile page using Nokogiri
     doc = Nokogiri::HTML(open(profile_url))
-    
+
     #establish the expected social media sites to be linked
     social_med_arr = ["twitter","linkedin","github"]
-    
+
     #setting an empty hash to have elements loaded into
     return_hash = {}
-    
+
     #using Nokogiri css selector to parse for any potential social media elements
     social_media = doc.css(".social-icon-container").css("a")
-    
+
     #looping through the array, using regex to parse the type of social media based on url, using gsub to get rid of 'www.' as the regex captures strings in between '//' and '.'
     social_media.each do |social|
       social_med = social.attr("href").gsub("www.","")[/(?<=\/{2})(.*?)(?=\.)/]
