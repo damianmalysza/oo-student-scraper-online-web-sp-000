@@ -16,7 +16,7 @@ class Scraper
     return_hash = {}
     social_media = doc.css(".social-icon-container").css("a")
     social_media.each do |social|
-      
+      case social.attr("href")
     end
     binding.pry
     # social media: doc.css(".social-icon-container").css("a").attr("href")
