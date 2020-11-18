@@ -23,7 +23,7 @@ class Scraper
     #looping through the array, using regex to parse the type of social media based on url, using gsub to get rid of 'www.' as the regex captures strings in between '//' and '.'
     social_media.each do |social|
       social_med = social.attr("href").gsub("www.","")[/(?<=\/{2})(.*?)(?=\.)/]
-      #the regex above fails for blog posts because the site is named after a student, using an if/else expression to see if the parsed social media is part of the social_med_arr
+      #the regex above fails for blog posts because the site is named after a student, using an if/else expression to see if the parsed social media is part of the social_med_arr, if not then setting the key to 'blog'
       if social_med_arr.include?(social_med)
         return_hash[social_med.to_sym] = social.attr("href")
       else
