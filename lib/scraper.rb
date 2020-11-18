@@ -18,7 +18,7 @@ class Scraper
     social_media.each do |social|
       return_hash[social.attr("href").gsub("www.","")[/(?<=\/{2})(.*?)(?=\.)/].to_sym] = social.attr("href")
     end
-
+    return_hash[:profile_quote] = doc.css(".vitals-text-container").css(".profile-quote").text
     #binding.pry
     return_hash
   end
