@@ -18,6 +18,7 @@ class Scraper
     social_media = doc.css(".social-icon-container").css("a")
     social_media.each do |social|
       social_med = social.attr("href").gsub("www.","")[/(?<=\/{2})(.*?)(?=\.)/]
+      if social_med_arr.include?(social_med)
       return_hash[social_med.to_sym] = social.attr("href")
     end
     return_hash[:profile_quote] = doc.css(".vitals-text-container").css(".profile-quote").text
