@@ -18,7 +18,8 @@ class Scraper
     social_media.each do |social|
       return_hash[social.attr("href").gsub("www.","")[/(?<=\/{2})(.*?)(?=\.)/].to_sym] = social.attr("href")
     end
-    binding.pry
+
+    #binding.pry
 
   end
 
