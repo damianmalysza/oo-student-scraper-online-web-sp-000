@@ -16,7 +16,7 @@ class Scraper
     doc = Nokogiri::HTML(open(profile_url))
 
     #establish the expected social media sites to be linked
-    social_med_arr = ["twitter","linkedin","github","facebook"]
+    social_med_arr = ["twitter","linkedin","github",]
 
     #setting an empty hash to have elements loaded into
     return_hash = {}
