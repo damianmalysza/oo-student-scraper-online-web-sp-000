@@ -16,6 +16,7 @@ class Scraper
     return_hash = {}
     social_media = doc.css(".social-icon-container").css("a")
     social_media.each do |social|
+      return_hash[social.attr("href")[/(?<=\/{2})(.*?)(?=\.)/]] = social.attr("href")
       binding.pry
     end
     #binding.pry
