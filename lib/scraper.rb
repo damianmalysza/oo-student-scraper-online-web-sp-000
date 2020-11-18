@@ -22,6 +22,7 @@ class Scraper
         return_hash[social_med.to_sym] = social.attr("href")
       else
         return_hash[:blog] = social.attr("href")
+      end
     end
     return_hash[:profile_quote] = doc.css(".vitals-text-container").css(".profile-quote").text
     return_hash[:bio] = doc.css(".description-holder").css("p").text
