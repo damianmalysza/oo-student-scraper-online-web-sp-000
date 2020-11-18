@@ -18,7 +18,7 @@ class Scraper
     social_media.each do |social|
       binding.pry
     end
-    binding.pry
+    #binding.pry
     # social media: doc.css(".social-icon-container").css("a").attr("href")
   end
 
