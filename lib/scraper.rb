@@ -20,7 +20,7 @@ class Scraper
     end
 
     #binding.pry
-
+    return_hash
   end
 
 end
