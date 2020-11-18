@@ -16,7 +16,7 @@ class Scraper
     doc = Nokogiri::HTML(open(profile_url))
 
     #establish the expected social media sites to be linked
-    social_med_arr = ["twitter","linkedin","github"]
+    social_med_arr = ["twitter","linkedin","github","facebook"]
 
     #setting an empty hash to have elements loaded into
     return_hash = {}
@@ -34,7 +34,7 @@ class Scraper
         return_hash[:blog] = social.attr("href")
       end
     end
-    
+
     #adding the profile_quote and bio keys to the hash
     return_hash[:profile_quote] = doc.css(".vitals-text-container").css(".profile-quote").text
     return_hash[:bio] = doc.css(".description-holder").css("p").text
